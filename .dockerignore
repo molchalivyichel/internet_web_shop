@@ -1,0 +1,10 @@
+.dockerignore
+.git
+.gitignore
+.osp
+access.log
+error.log
+*.mwb
+*.mwb.bak
+test
+README.md
