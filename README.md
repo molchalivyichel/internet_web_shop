@@ -12,3 +12,6 @@ Instruction:
 Инструкция:
 1. в папке 'система' используй команду 'composer require steampixel/simple-php-router'. Спасибо автору за репозиторий ^^
 2. ну, думаю это всё
+
+docker-compose up -d 
+docker-compose down  
