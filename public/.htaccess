@@ -1,6 +1,4 @@
-Options +FollowSymLinks
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^ index.php [QSA,L]
-DirectoryIndex home.php index.php
+RewriteRule ^ index.php [L]

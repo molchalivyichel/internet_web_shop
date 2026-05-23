@@ -1,19 +1,26 @@
-# Берём готовый образ PHP с веб-сервером Apache
-FROM php:8.2-apache
+FROM php:8.4-apache
 
-# Устанавливаем расширения PHP для работы с MySQL
-RUN docker-php-ext-install pdo pdo_mysql mysqli
+# Устанавливаем системные зависимости (если нужны)
+RUN apt-get update && apt-get install -y unzip git
 
-# Включаем модуль mod_rewrite (нужен для .htaccess и красивых URL)
+# Устанавливаем Composer из официального образа
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+
+# Установка PHP-расширений
+RUN docker-php-ext-install mysqli pdo pdo_mysql
 RUN a2enmod rewrite
 
-# Меняем корневую папку веб-сервера на `public`
-ENV APACHE_DOCUMENT_ROOT /var/www/html/public
-RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf && \
-    sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
+# Меняем DocumentRoot на public
+RUN sed -i 's!/var/www/html!/var/www/html/public!g' /etc/apache2/sites-available/000-default.conf \
+    && sed -i 's/AllowOverride None/AllowOverride All/g' /etc/apache2/apache2.conf
 
-# Копируем все файлы из текущей папки внутрь контейнера
+WORKDIR /var/www/html
+
+# Копируем исходники (НО исключаем vendor через .dockerignore!)
 COPY . /var/www/html/
 
-# Назначаем правильного владельца файлов (для безопасности)
-RUN chown -R www-data:www-data /var/www/html
+# Переходим в папку system и устанавливаем зависимости
+WORKDIR /var/www/html/system
+
+# Возвращаем рабочую директорию для Apache
+WORKDIR /var/www/html

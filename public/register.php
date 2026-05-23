@@ -6,7 +6,7 @@ require_once __DIR__ . '/../system/auth.php';
 $redirect = $_POST['redirect'] ?? '/';
 
 $email = check($_POST['email'] ?? '', 255);
-$password = $_POST['password'] ?? '';
+$password = check($_POST['password'] ?? '',255);
 
 $existing_user = check_email($email);
 if ($existing_user !== 0) {
@@ -24,3 +24,4 @@ if ($new_user_id === false) {
 $_SESSION['user_id'] = $new_user_id;
 header("Location: $redirect");
 exit();
+?>

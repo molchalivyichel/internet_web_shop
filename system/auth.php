@@ -13,9 +13,9 @@ function check($value, $max_length, $min_length = 7) {
 }
 
 function check_email($email) {
-    global $con;
+    global $pdo;
     $sql = "SELECT users_id FROM users WHERE users_email = :email";
-    $stmt = $con->prepare($sql);
+    $stmt = $pdo->prepare($sql);
     $stmt->execute(['email' => $email]);
     
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -29,30 +29,30 @@ function check_email($email) {
 }
 
 function check_password($password, $id_user) {
-    global $con;
+    global $pdo;
     $sql = "SELECT user_password_hash FROM users WHERE users_id = :id";
-    $stmt = $con->prepare($sql);
+    $stmt = $pdo->prepare($sql);
     $stmt->execute(['id' => $id_user]);
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
     return $row && password_verify($password, $row['user_password_hash']);
 }
 
 function check_user_id($id_user) {
-    global $con;
+    global $pdo;
     $sql = "SELECT users_id, users_email FROM users WHERE users_id = :id";
-    $stmt = $con->prepare($sql);
+    $stmt = $pdo->prepare($sql);
     $stmt->execute(['id' => $id_user]);
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
 
 function add_user($email, $password) {
-    global $con;
+    global $pdo;
     try {
         $password_hash = password_hash($password, PASSWORD_DEFAULT);
         $sql = "INSERT INTO users (users_email, user_password_hash) VALUES (:email, :password)";
-        $stmt = $con->prepare($sql);
+        $stmt = $pdo->prepare($sql);
         $stmt->execute(['email' => $email, 'password' => $password_hash]);
-        return $con->lastInsertId();
+        return $pdo->lastInsertId();
     } catch (PDOException $e) {
         error_log("DB error: " . $e->getMessage());
         return false;
@@ -81,3 +81,4 @@ while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
 }
 
 */
+?>

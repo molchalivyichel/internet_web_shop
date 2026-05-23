@@ -1,29 +1,29 @@
 <?php
-
+session_start();
 require_once __DIR__ . '/vendor/autoload.php';
 
 use Steampixel\Route;
 
 Route::add('/', function() {
-  echo include 'home.php';
+  echo require_once 'home.php';
 });
 
-Route::add('/index', function() {
-  echo include 'home.php';
+Route::add('/home', function() {
+  echo require_once 'home.php';
 });
 
 Route::add('/faq', function() {
-  echo include 'faq.php';
+  echo require_once 'faq.php';
 });
 
 Route::add('/cart', function() {
   $redirect = $_POST['redirect'] ?? '/';
-  
   if (!isset($_SESSION['user_id'])) {
       $_SESSION['flash_error'] = 'Авторизуйтесь, чтобы просмотреть корзину.';
       header("Location: $redirect");
       exit;
   }
+  echo require_once 'cart.php';
 });
 
 Route::add('/favorite', function() {
@@ -33,6 +33,21 @@ Route::add('/favorite', function() {
       header("Location: $redirect");
       exit;
   }
+  echo require_once 'favorite.php';
+});
+
+Route::add('/categories', function() {
+  $redirect = $_POST['redirect'] ?? '/';
+  if (!isset($_SESSION['user_id'])) {
+      $_SESSION['flash_error'] = 'Авторизуйтесь, чтобы начать смотреть категории товаров.';
+      header("Location: $redirect");
+      exit;
+  }
+  echo require_once 'categories.php';
+});
+
+Route::add('/categories/([a-z-0-9-]*)', function() {
+  echo require_once 'categories.php';
 });
 
 // Обработка ошибок

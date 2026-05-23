@@ -1,0 +1,44 @@
+.margin {
+    margin-bottom: 50px;
+}
+
+.card {
+    background-color: black;
+    width: 400px;
+    height: 400px;
+    border-radius: 10%;
+}
+
+.card-img {
+    width: 300px;
+    height: 300px;
+    border-radius: 10%;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card-price {
+    background-color: #FFFF00;
+    color:#000000;
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.card-name {
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.card-icon {
+    background-color: #000000;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.container {
+    position: relative;
+  }

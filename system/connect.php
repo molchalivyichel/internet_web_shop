@@ -4,16 +4,24 @@
 // $dsn  = 'mysql:host=localhost;dbname=shop'; // Data Source Name
 // $dsn  = 'mysql:host=localhost;port=3306;dbname=shop'; // Data Source Name    // Specifying the MySQL Port Number
 
-$host = getenv('DB_HOST') ?: 'localhost';
-$dbname = getenv('DB_NAME') ?: 'mydatabase';
-$user = getenv('DB_USER') ?: 'root';
-$pass = getenv('DB_PASS') ?: 'root';
 
+$host = getenv('DB_HOST') ?: 'localhost';
+$port = getenv('DB_PORT') ?: '3306';
+$db   = getenv('DB_DATABASE') ?: 'mydb';
+$user = getenv('DB_USERNAME') ?: 'root';
+$pass = getenv('DB_PASSWORD') ?: '';
+/*
+$host = '127.0.0.1';   // важно: не localhost
+$dbname = 'mydb';      // имя вашей базы данных (проверьте в MySQL Workbench)
+$user = 'root';
+$pass = '';            // по умолчанию пустой
+*/
 try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $pass);
+    $pdo = new PDO("mysql:host=$host;dbname=$db;charset=utf8", $user, $pass);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    //echo "Подключение успешно!";
 } catch (PDOException $e) {
-    die("Ошибка подключения к БД: " . $e->getMessage());
+    //die("Ошибка подключения к БД: " . $e->getMessage());
 }
 
 
