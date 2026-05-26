@@ -1,10 +1,19 @@
 <nav class="navbar fixed-top">
         <button class="navbar-toggler accordion-button-after" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-            <img src="upload/menu.png" id="menu-icon" alt="menu">
+            <img src="/upload/menu.png" id="menu-icon" alt="menu">
         </button>
         <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
             <div class="flex-container">
                 <div class="accordion accordion-flush" id="accordionFlushExample">
+                  <div class="item auto">
+                    <div class="accordion-item">
+                      <h2 class="accordion-header">
+                        <div>
+                          <a href="/categories/all/">Все категории</a>
+                        </div>
+                      </h2>
+                    </div>
+                  </div>
                     <div class="item auto">
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="flush-headingOne">
@@ -14,11 +23,11 @@
                             </h2>
                             <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                                 <div class="accordion-body">
-                                    <a href="categories/man">Вся категория</a>
-                                    <a href="categories/man/man_clothing">Одежда</a>
-                                    <a href="categories/man/man_shoes">Обувь</a>
-                                    <a href="categories/man/man_accessory">Аксессуары</a>
-                                    <a href="categories/man/man_underwear">Нижнее бельё</a>
+                                    <a href="/categories/man/">Вся категория</a>
+                                    <a href="/categories/man/man_clothing">Одежда</a>
+                                    <a href="/categories/man/man_shoes">Обувь</a>
+                                    <a href="/categories/man/man_accessory">Аксессуары</a>
+                                    <a href="/categories/man/man_underwear">Нижнее бельё</a>
                                 </div>
                             </div>
                         </div>
@@ -32,11 +41,11 @@
                             </h2>
                             <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
                                 <div class="accordion-body">
-                                    <a href="categories/woman">Вся категория</a>
-                                    <a href="categories/woman/woman_clothing">Одежда</a>
-                                    <a href="categories/woman/woman_shoes">Обувь</a>
-                                    <a href="categories/woman/woman_accessory">Аксессуары</a>
-                                    <a href="categories/woman/woman_underwear">Нижнее бельё</a>
+                                    <a href="/categories/woman">Вся категория</a>
+                                    <a href="/categories/woman/woman_clothing">Одежда</a>
+                                    <a href="/categories/woman/woman_shoes">Обувь</a>
+                                    <a href="/categories/woman/woman_accessory">Аксессуары</a>
+                                    <a href="/categories/woman/woman_underwear">Нижнее бельё</a>
                                 </div>
                             </div>
                         </div>
@@ -45,30 +54,30 @@
             </div>
         </div>
         <div>
-          <a href="home" id="logo" class="mx-auto p-2 ">Магазин-одежды</a>
+          <a href="/home" id="logo" class="mx-auto p-2 ">Магазин-одежды</a>
         </div>
 <div class="flex-container ">
     <button>
         <a href="cart">
-            <img id="menu-icon" src="upload/backet.png" alt="basket">
+            <img id="menu-icon" src="/upload/backet.png" alt="basket">
         </a>
     </button>
     <button>
         <a href="favorite">
-            <img id="menu-icon" src="upload/favorite.png" alt="favorite">
+            <img id="menu-icon" src="/upload/favorite.png" alt="favorite">
         </a>
     </button>
     <?php if (isset($_SESSION['user_id'])): ?>
         <!-- Кнопка выхода – ссылка на logout.php -->
         <a href="logout.php?redirect=<?= urlencode($_SERVER['REQUEST_URI']) ?>">
             <button type="button">
-                <img id="menu-icon-user" src="upload/exit.png" alt="exit">
+                <img id="menu-icon-user" src="/upload/exit.png" alt="exit">
             </button>
         </a>
     <?php else: ?>
         <!-- Кнопка входа (открывает модальное окно) -->
         <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#authModal">
-            <img id="menu-icon-user" src="upload/user.png" alt="user">
+            <img id="menu-icon-user" src="/upload/user.png" alt="user">
         </button>
     <?php endif; ?>
 </div>

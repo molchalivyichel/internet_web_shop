@@ -1,44 +1,50 @@
 <?php
-function card($card_name, $card_price, $card_img) {
-    echo "
-    <div class='p-2 card'>
-        <div class='container'>
-            <img class='card-img' src='$card_img' alt='product'>
-            <div class='card-price p-2'>{$card_price}</div>
-        </div>
-
-        <div class='d-flex'>
-            <div class='p-2 flex-grow-1 card-name'>
-                {$card_name}
+/**
+ * @param string 
+ * @param float  
+ * @param string 
+ */
+function card($name, $price, $img) {
+    ?>
+    <div class="col">
+        <div class="card product-card h-100">
+            <div class="product-image-wrapper">
+                <img src="/<?= htmlspecialchars($img) ?>" class="card-img-top product-img" alt="<?= htmlspecialchars($name) ?>">
             </div>
-            <div class='p-2'>
-                <a href='cart'>
-                    <img class='card-icon' src='upload/bucket_white.png' alt='basket'>
-                </a>
-            </div>
-            <div class='p-2'>
-                <a href='favorite'>
-                    <img class='card-icon' src='upload/favorite_white.png' alt='favorite'>
-                </a>
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title product-name"><?= htmlspecialchars($name) ?></h5>
+                <div class="mt-auto d-flex justify-content-between align-items-center">
+                    <span class="product-price"><?= number_format($price, 0, '.', ' ') ?> ₽</span>
+                    <div class="product-actions">
+                        <a href="cart" class="btn-icon" title="В корзину">
+                            <img src="/upload/bucket_white.png" alt="basket">
+                        </a>
+                        <a href="favorite" class="btn-icon" title="В избранное">
+                            <img src="/upload/favorite_white.png" alt="favorite">
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    ";
+    <?php
 }
 
-function card_view($array, $count=0) {
-    foreach ($array as $values) {
-        if($count % 3 == 0 && $count > 0) {
-            echo '</div>';
-        }
-        if($count % 3 == 0) {
-            echo '<div class="d-flex justify-content-evenly margin">';
-        }
-        card($values['products_name'], $values['products_price'], $values['products_image']); 
-        $count++;
+/**
+ 
+ * @param array $items Массив товаров маproducts_name, products_price, products_image
+ */
+function card_view($items) {
+    if (empty($items)) {
+        echo '<div class="col-12 text-center">Товары не найдены</div>';
+        return;
     }
-    if($count % 3 != 0) { 
-        echo '</div>';
-    }
+    ?>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+        <?php foreach ($items as $item): ?>
+            <?php card($item['products_name'], $item['products_price'], $item['products_image']); ?>
+        <?php endforeach; ?>
+    </div>
+    <?php
 }
 ?>
