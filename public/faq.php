@@ -18,8 +18,8 @@ require_once 'flash_error.php'
 require_once 'header.php';
 ?>
 
-<div style="max-width: 1000px; margin: 0 auto;">
-    <img class="img-fluid" src="upload/backgroundfaq.jpg" style="margin-top: 100px;">
+<div style=" margin: 0 auto;">
+    <img class="img-fluid" src="upload/refund_desktop.jpg" style="margin-top: 100px;">
 </div>
 
 <?php

@@ -23,8 +23,20 @@ Route::add('/cart', function() {
       header("Location: $redirect");
       exit;
   }
-  echo require_once 'cart.php';
+  require_once 'cart.php';
 });
+
+Route::add('/cart/add', function() {
+  require_once 'cart_add.php';
+}, 'post'); // явно указываем метод POST
+
+Route::add('/cart/update', function() {
+  require_once 'cart_update.php';
+}, 'post');
+
+Route::add('/cart/remove', function() {
+  require_once 'cart_remove.php';
+}, 'post');
 
 Route::add('/favorite', function() {
   $redirect = $_POST['redirect'] ?? '/';
@@ -33,7 +45,15 @@ Route::add('/favorite', function() {
       header("Location: $redirect");
       exit;
   }
-  echo require_once 'favorite.php';
+  require_once 'favorite.php';
+});
+
+Route::add('/favorite/add', function() {
+  require_once 'favorite_add.php';
+});
+
+Route::add('/favorite/remove', function() {
+  require_once 'favorite_remove.php';
 });
 
 Route::add('/categories', function() {
@@ -43,7 +63,7 @@ Route::add('/categories', function() {
       header("Location: $redirect");
       exit;
   }
-  echo require_once 'categories.php';
+  require_once 'categories.php';
 });
 
 /*
@@ -87,7 +107,7 @@ Route::add('/categories/([a-z-0-9-_]+)', function($param1) {
       header("Location: $redirect");
       exit;
   }
-  echo require_once 'categories.php';
+  require_once 'categories.php';
 });
 
 Route::add('/categories/([a-z0-9-_]+)/([a-z0-9-_]+)', function($param1, $param2) {
@@ -101,6 +121,21 @@ Route::add('/categories/([a-z0-9-_]+)/([a-z0-9-_]+)', function($param1, $param2)
   $_GET['category'] = $param2;
   require_once 'categories.php';
 });
+
+Route::add('/product/([0-9]+)', function($id) {
+  $redirect = $_SERVER['REQUEST_URI'];
+  if (!isset($_SESSION['user_id'])) {
+      $_SESSION['flash_error'] = 'Авторизуйтесь...';
+      header("Location: /login?redirect=" . urlencode($redirect));
+      exit;
+  }
+  $_GET['id'] = $id; // передаём ID в глобальный массив или в require
+  require_once 'product.php';
+});
+
+Route::add('/checkout', function() {
+  require_once 'checkout.php';
+}, 'get');
 
 // Обработка ошибок
 Route::pathNotFound(function() {

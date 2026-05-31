@@ -1,0 +1,52 @@
+Array
+(
+    [product_id] => 129
+    [quantity] => 1
+)
+
+Array
+(
+    [product_id] => 129
+    [quantity] => 1
+)
+
+Array
+(
+    [product_id] => 129
+    [quantity] => 1
+    [color] => Чёрный
+    [size] => 38
+)
+
+Array
+(
+    [product_id] => 129
+    [quantity] => 1
+    [color] => Чёрный
+    [size] => 38
+)
+
+Array
+(
+    [product_id] => 130
+    [quantity] => 1
+    [color] => Бежевый
+    [size] => 37
+)
+
+Array
+(
+    [product_id] => 1
+    [quantity] => 1
+    [color] => Красный
+    [size] => XL
+)
+
+Array
+(
+    [product_id] => 1
+    [quantity] => 1
+    [color] => Чёрный
+    [size] => ХХ
+)
+

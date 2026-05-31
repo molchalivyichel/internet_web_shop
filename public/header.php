@@ -1,6 +1,6 @@
 <nav class="navbar fixed-top">
         <button class="navbar-toggler accordion-button-after" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-            <img src="/upload/menu.png" id="menu-icon" alt="menu">
+            <img src="/upload/menu.png" id="menu-icon" alt="menu" title="Категории товаров">
         </button>
         <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
             <div class="flex-container">
@@ -9,7 +9,7 @@
                     <div class="accordion-item">
                       <h2 class="accordion-header">
                         <div>
-                          <a href="/categories/all/">Все категории</a>
+                          <a href="/categories/all" id="all-categories">Все категории</a>
                         </div>
                       </h2>
                     </div>
@@ -23,7 +23,7 @@
                             </h2>
                             <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                                 <div class="accordion-body">
-                                    <a href="/categories/man/">Вся категория</a>
+                                    <a href="/categories/man">Вся категория</a>
                                     <a href="/categories/man/man_clothing">Одежда</a>
                                     <a href="/categories/man/man_shoes">Обувь</a>
                                     <a href="/categories/man/man_accessory">Аксессуары</a>
@@ -56,28 +56,28 @@
         <div>
           <a href="/home" id="logo" class="mx-auto p-2 ">Магазин-одежды</a>
         </div>
-<div class="flex-container ">
+<div class="flex-container" id="icon-mobile">
     <button>
-        <a href="cart">
-            <img id="menu-icon" src="/upload/backet.png" alt="basket">
+        <a href="/cart">
+            <img id="menu-icon" src="/upload/backet.png" alt="basket" title="Корзина">
         </a>
     </button>
     <button>
-        <a href="favorite">
-            <img id="menu-icon" src="/upload/favorite.png" alt="favorite">
+        <a href="/favorite">
+            <img id="menu-icon" src="/upload/favorite.png" alt="favorite" title="Избранное">
         </a>
     </button>
     <?php if (isset($_SESSION['user_id'])): ?>
         <!-- Кнопка выхода – ссылка на logout.php -->
         <a href="logout.php?redirect=<?= urlencode($_SERVER['REQUEST_URI']) ?>">
             <button type="button">
-                <img id="menu-icon-user" src="/upload/exit.png" alt="exit">
+                <img id="menu-icon-user" src="/upload/exit.png" alt="exit" title="Выход из аккаунта">
             </button>
         </a>
     <?php else: ?>
         <!-- Кнопка входа (открывает модальное окно) -->
         <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#authModal">
-            <img id="menu-icon-user" src="/upload/user.png" alt="user">
+            <img id="menu-icon-user" src="/upload/user.png" alt="user" title="Вход в аккаунт">
         </button>
     <?php endif; ?>
 </div>
@@ -92,7 +92,7 @@
       </div>
       <div class="modal-body">
         <!-- Форма входа (авторизация) -->
-        <div id="loginForm" style="display: none;">
+        <div id="loginForm">
           <form action="login.php" method="POST">
             <div class="mb-3">
               <label for="login_email" class="form-label">Email</label>
@@ -110,7 +110,7 @@
         </div>
 
         <!-- Форма регистрации -->
-        <div id="registerForm">
+        <div id="registerForm" style="display: none;">
           <form action="register.php" method="POST">
             <div class="mb-3">
               <label for="reg_email" class="form-label">Email</label>

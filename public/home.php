@@ -13,6 +13,7 @@ require_once 'flash_error.php'
     <script src="js/entrance.js" defer></script>
     <link rel="stylesheet" href="css/style.css">
     <title>Магазин</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
 </head>
 <body>
 
@@ -23,6 +24,9 @@ require_once 'carousel.php';
 
 <div class="flex-container-global">
     <img id="image2" src="upload/slide2.png" alt="slide2">
+</div>
+<div class="flex-container-global mobile-p">
+    <p>Добро пожаловать на сайт</p>
 </div>
 
 <?php

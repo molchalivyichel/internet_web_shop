@@ -1,0 +1,142 @@
+h3 {
+    color: #ffffff;
+}
+
+.text-product {
+    color: #ffffff;
+}
+
+.product-gender {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    color: #6900EA;
+    letter-spacing: 1px;
+}
+
+.product-title {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.product-price {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ffffff;
+    background: #1a1a1a;
+    display: inline-block;
+    padding: 0.2rem 1rem;
+    border-radius: 40px;
+}
+
+.color-text {
+    display: inline-block;
+    background: #2a2a2a;
+    padding: 0.3rem 0.8rem;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    color: #fff;
+}
+
+.btn-add-to-cart {
+    background: #6900EA;
+    border: none;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 12px 30px;
+    border-radius: 40px;
+    transition: 0.2s;
+}
+.btn-add-to-cart:hover {
+    background: #ea00ea;
+    transform: scale(1.02);
+}
+
+.product-description {
+    background: #111;
+    padding: 1.5rem;
+    border-radius: 20px;
+    margin-bottom: 50px;
+}
+
+.form-check-input:checked {
+    background-color: #6900EA;
+    border-color: #6900EA;
+}
+
+.form-check-label {
+    cursor: pointer;
+}
+
+.description {
+    color:#fff;
+}
+
+.btn-favorite {
+    display: inline-block;
+    background: #2a2a2a;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    margin-left: 15px;
+}
+
+.btn-favorite:hover {
+    background: #000000;
+    transform: scale(1.02);
+}
+
+.btn-favorite.active {
+    background: #6900EA;
+    
+}
+.btn-favorite.active:hover {
+    background: #ea00ea;
+    transform: scale(1.02);
+}
+
+.btn-favorite img {
+    width: 20px;
+    margin-right: 8px;
+}
+
+.button-text:hover {
+    color:#fff;
+}
+
+@media (max-width: 768px) {
+    .row.g-5 {
+        --bs-gutter-y: 1rem;
+        --bs-gutter-x: 1rem;
+    }
+    .product-title {
+        font-size: 1.5rem;
+    }
+    .product-price {
+        font-size: 1.3rem;
+    }
+    .btn-add-to-cart, .btn-favorite {
+        width: 100%;
+        text-align: center;
+        margin-left: 0;
+        margin-top: 10px;
+    }
+    .product-description {
+        padding: 1rem;
+        margin-bottom: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-description {
+        margin-bottom: 20px;
+        padding: 0.8rem;
+    }
+    .btn-add-to-cart, .btn-favorite {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+    .product-price {
+        font-size: 1.2rem;
+    }
+}

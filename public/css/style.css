@@ -28,7 +28,7 @@ img {
 }
 
 a {
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 600;
     text-decoration: none;
     color: inherit;
@@ -74,7 +74,7 @@ button {
 #logo {
     margin-top: 50px;
     font-size: 30px;
-    color: 6900EA;
+    color: #6900EA;
     
 }
 
@@ -101,17 +101,6 @@ button {
 
 .accordion-button-after {
     outline: 0px;
-}
-
-/* Иконки меню */
-#menu-icon {
-    width: 50px;
-    height: 50px;
-}
-
-#menu-icon-user {
-    width: 25px;
-    height: 50px;
 }
 
 /* Offcanvas */
@@ -162,4 +151,112 @@ button {
 
 .footer-group {
     margin-top: 30px;
+}
+
+#all-categories {
+    font-size: 25px;
+}
+
+.product-card .card-img-top {
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+.product-card .btn-outline-secondary {
+    border-color: #000B0B;
+    color: #000B0B;
+}
+.product-card .btn-outline-secondary:hover {
+    background: #6900EA;
+    color: #ffffff;
+}
+
+.button-backet:hover {
+    transform: scale(1.02);
+}
+
+/* Базовые отступы для мобильных */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+    .container {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+    p {
+        font-size: 15px;
+    }
+    .main_text_footer {
+        font-size: 15px;
+    }
+    #logo {
+        font-size: 20px;
+    }
+    a {
+        font-size: 15px;
+    }
+}
+
+/* Шапка (navbar) – уже адаптивна, но можно уменьшить отступы */
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+    #menu-icon, #menu-icon-user {
+        width: 24px;
+        height: 24px;
+    }
+    .navbar-toggler {
+        padding: 0;
+    }
+    #footer {
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer-group {
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .cart-item-card .input-group {
+        width: 100% !important;
+    }
+    .d-flex.justify-content-between {
+        gap: 10px;
+        align-items: flex-start;
+    }
+        .cart-summary {
+            flex-direction: column;
+            align-items: stretch !important;
+            gap: 15px;
+            text-align: center;
+        }
+        .cart-summary .btn {
+            width: 100%;
+            text-align: center;
+        }
+}
+
+@media (max-width: 480px) {
+    .product-actions .btn-icon span {
+        display: none;
+    }
+    .mobile-p {
+        display: contents;
+        text-align: center;
+        margin-top: 50px;
+    }
+    #image2 {
+        display: none;
+    }
+    .carousel {
+        display: none;
+    }
+    .offcanvas.offcanvas-start {
+        width: 170px;
+    }
+    #logo {
+        display: none;
+    }
 }

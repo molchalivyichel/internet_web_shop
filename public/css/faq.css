@@ -2,7 +2,7 @@
     line-height: 1.2;
     color: #f8f8f8;
     text-shadow: 2px 0 0 #000B0B;
-    font-size: 60px;
+    font-size: 30px;
 }
 
 .accordion-button:not(.collapsed) {
@@ -20,7 +20,7 @@ button:focus:not(:focus-visible) {
 
 .text-faq-p {
     color:#242424;
-    font-size: 40px;
+    font-size: 20px;
 }
 
 .text-faq-li {
@@ -43,4 +43,19 @@ li {
 
 strong {
     font-size: 32px;
+}
+
+@media (max-width: 768px) {
+    .text-button { font-size: 32px; }
+    .text-faq-p, .text-faq-li { font-size: 24px; }
+    p, li { font-size: 18px; }
+    strong { font-size: 24px; }
+}
+@media (max-width: 480px) {
+    .text-button { font-size: 24px; }
+    .text-faq-p, .text-faq-li { font-size: 20px; }
+    p, li { font-size: 16px; }
+    .img-fluid {
+        display: none;
+    }
 }
